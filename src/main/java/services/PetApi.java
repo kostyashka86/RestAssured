@@ -15,7 +15,8 @@ public class PetApi {
     public PetApi() {
         spec = given()
                 .baseUri(BASE_URL)
-                .contentType(ContentType.JSON);
+                .contentType(ContentType.JSON)
+                .log().all();;
     }
 
     public ValidatableResponse createPet(Pet pet) {
@@ -24,7 +25,8 @@ public class PetApi {
                             .body(pet)
                 .when()
                             .post()
-                .then();
+                .then()
+                            .log().all();
     }
 
     public ValidatableResponse getPetId(String id) {
@@ -32,6 +34,7 @@ public class PetApi {
                             .basePath(PET + "/" + id)
                 .when()
                             .get()
-                .then();
+                .then()
+                            .log().all();
     }
 }

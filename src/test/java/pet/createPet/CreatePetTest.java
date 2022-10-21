@@ -48,10 +48,10 @@ public class CreatePetTest extends Config {
 
     }
 
-    /*
-        кейс: отправить запрос для обновления инфы о питомце с одним параметром
-        проверить: статус 200ок, отправленный id создался корректные, неотправленные параметры - null.
-    */
+
+        /*кейс: отправить запрос для обновления информации о питомце с одним параметром
+        проверить: статус 200, отправленный id создался, неотправленные параметры - null.*/
+
     @Test
     public void petUpdateOnlyId(){
         Pet pet = Pet.builder()
@@ -64,15 +64,14 @@ public class CreatePetTest extends Config {
                 .body("name", equalTo(null))
                 .body("status", equalTo(null));
 
-
-        //обновляем данные
+        //обновляем данные (другой id)
         Pet pet2 = Pet.builder()
                 .id(777)
                 .build();
 
         petApi.createPet(pet2);
 
-        //проверяем обновление данных
+        //проверяем обновление
         petApi.getPetId("777")
                 .statusCode(200)
                 .body("id", equalTo(777))
