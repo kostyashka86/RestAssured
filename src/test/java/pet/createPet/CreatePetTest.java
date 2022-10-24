@@ -24,7 +24,6 @@ public class CreatePetTest extends Config {
 
         //проверяем данные
         petApi.getPetId("165")
-                .statusCode(200)
                 .body("id", equalTo(165))
                 .body("name", equalTo("FirstName"))
                 .body("status", equalTo("available"));
@@ -40,7 +39,6 @@ public class CreatePetTest extends Config {
 
         //проверяем обновление данных
         petApi.getPetId("165")
-                .statusCode(200)
                 .body("id", equalTo(165))
                 .body("name", equalTo("FirstName11"))
                 .body("status", equalTo("available"));
