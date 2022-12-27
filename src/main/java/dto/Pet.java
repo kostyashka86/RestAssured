@@ -5,31 +5,67 @@ import lombok.Builder;
 import lombok.Data;
 
 import java.util.ArrayList;
-import java.util.Objects;
 
 @Data
 @Builder
 @AllArgsConstructor
 public class Pet {
     public int id;
-    public String name;
-    public String status;
     public Category category;
+    public String name;
     public ArrayList<String> photoUrls;
     public ArrayList<Tag> tags;
+    public String status;
 
-    public Pet() {}
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Pet pet = (Pet) o;
-        return id == pet.id && Objects.equals(name, pet.name) && Objects.equals(status, pet.status);
+    public Pet() {
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, name, status);
+    public int getId() {
+        return id;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public ArrayList<String> getPhotoUrls() {
+        return photoUrls;
+    }
+
+    public ArrayList<Tag> getTags() {
+        return tags;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setPhotoUrls(ArrayList<String> photoUrls) {
+        this.photoUrls = photoUrls;
+    }
+
+    public void setTags(ArrayList<Tag> tags) {
+        this.tags = tags;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 }
