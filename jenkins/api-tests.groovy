@@ -8,7 +8,7 @@ timeout(60) {
             def exitCode = sh(
                     returnStatus: true,
                     script: """
-                    mvn test
+                    mvn clean test
                     """
             )
             if (exitCode == 1) {
